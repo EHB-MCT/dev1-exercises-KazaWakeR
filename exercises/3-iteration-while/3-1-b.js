@@ -6,7 +6,7 @@ draw();
 
 function draw() {
     context.lineWidth = 2;
-    context.strokeStyle = "white";
+    context.strokeStyle = "whi";
     context.fillStyle = "#3498DB";
     context.fillRect(50, 50, 300, 300);
     drawGrid();
@@ -14,11 +14,11 @@ function draw() {
 
 function drawGrid() {
     let i = 0;
-    while (i<= 25) {
-        let x = 50;
-        let y = x;
-        Utils.drawLine(75, y*i, 325, y*i);
-        Utils.drawLine(x*i, 75, x*i, 325);
-        i+= .5;
+    while (i < 6) {
+        let x = 65;
+        let y = 65;
+        Utils.drawLine(y*i, 50, y*i, 350);
+        Utils.drawLine(50,x*i, 350, x*i);
+        i++;
     }
 }

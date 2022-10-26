@@ -22,6 +22,6 @@ function drawLines() {
         //And has the following parameters: x1, y1, x2, y2
 
         Utils.drawLine( 100, 70*i, 300, 70*i);
-        i+= .4;
+        i+= .4 ;
     }
 }

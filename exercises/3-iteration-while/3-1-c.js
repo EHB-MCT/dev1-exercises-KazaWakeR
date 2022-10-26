@@ -18,6 +18,6 @@ function drawCross() {
         let step = 40;
         Utils.drawLine(50, step*i+130, 350, step*i+130);
         Utils.drawLine(step*i+140, 50, step*i+140, 350);
-        i+= .8;
+        i++;
     }
 }

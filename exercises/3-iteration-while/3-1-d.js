@@ -17,6 +17,6 @@ function drawDiagonalLines() {
     while (i <= 5) {
         let spacing = 31;
         Utils.drawLine(50+spacing*i, 200+spacing*i, 200+spacing*i, 50+spacing*i);
-        i += .8;
+        i++;
     }
 }

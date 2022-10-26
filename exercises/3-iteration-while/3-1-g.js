@@ -19,6 +19,6 @@ function drawConcentricCircles() {
         //Add it to the utils script:
         //The function draws the stroke of a circle 
         //and has the following parameters: x,y,radius
-        Utils.strokeCircle(200, 200, 10 + (i*15);
-        i++;
-}
+        Utils.strokeCircle(200, 200, 10 + (i * 15); i++;
+        }
+    }

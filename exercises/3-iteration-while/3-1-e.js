@@ -14,12 +14,12 @@ function draw() {
 
 function drawDiagonalGrid() {
     let i = 0;
-    while (i <= 25) {
-        let spacing = 6.2;
+    while (i <= 9) {
+        let spacing = 16.5;
         let x = 50;
         let y = 50;
         Utils.drawLine(50+spacing*i, 200+spacing*i, 200+spacing*i, 50+spacing*i );
-        Utils.drawLine( );
-        i+= 4;
+        Utils.drawLine( +spacing, 200+spacing*i, 200+spacing*i, 50+spacing*i);
+        i++;
     }
 }
