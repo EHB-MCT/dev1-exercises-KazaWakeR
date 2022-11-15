@@ -4,19 +4,18 @@ import * as Utils from "../../scripts/utils.js";
 
 let width = context.canvas.width;
 let height = context.canvas.height;
-context.strokeStyle = "white";
-context.lineWidth = 2;
-
 background();
 
 function background() {
-    context.fillStyle = "black";
+    //context.fillStyle = "black";
     context.fillRect(0, 0, width, height);
 }
 
-function drawBubbles() {
-    Utils.fillAndStrokeEllipse {
-        fill
-    }
+drawBubbles();
 
+function drawBubbles() {
+    for (let i = 0; i <= 50; i++) {
+        Utils.fillAndStrokeEllipse(Math.floor(Math.random(context.canvas.width) width), Math.floor(Math.random(context.canvas.height) width), Math.floor(Math.random() 100));
+        context.fillStyle = Utils.rgba(Math.random(Math.floor) 255, Math.random(Math.floor) 255, Math.random(Math.floor) 255, Math.random(Math.floor) * 1);
+    }
 }
