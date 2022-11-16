@@ -26,9 +26,9 @@ function drawBubbles() {
 function drawBubble(x, y, radius, hue) {
 
     context.fillStyle = Utils.hsl(hue, 50, 50);
-    Utils.fillAndStrokeEllipse(x, y, radius);
+    Utils.fillCircle(x, y, radius);
     context.fillStyle = Utils.hsl(180, 50, 75);
-    Utils.fillAndStrokeEllipse(x + radius / 3, y - radius / 3, radius / 4);
+    Utils.fillCircle(x + radius / 3, y - radius / 3, radius / 4);
 
 }
 
