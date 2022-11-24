@@ -5,11 +5,17 @@ import * as Utils from "../../scripts/utils.js";
 
 let width = context.canvas.width;
 let height = context.canvas.height;
+window.onmousemove = drawCross;
 
-window.onmousemove = drawCrosshair
+function drawCross(event) {
+    context.fillStyle = 'white';
+    context.fillRect(0, 0, width, height);
 
-function drawCrosshair(event) {
-    console.log(event.pageX, event.pageY);
-    Utils.drawLine(event.pageX, 0, event.pageY, height);
-    Utils.drawLine(0, event.pageX, event.pageY, height);
+
+    context.strokeStyle = 'red';
+    context.lineWidth = 5;
+    Utils.drawLine(event.pageX, 0, event.pageX, height);
+    Utils.drawLine(0, event.pageY, width, event.pageY);
+
+
 }
