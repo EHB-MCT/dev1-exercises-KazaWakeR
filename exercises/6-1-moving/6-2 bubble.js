@@ -5,11 +5,13 @@ import * as Utils from "../../scripts/utils.js";
 let width = context.canvas.width;
 let height = context.canvas.height;
 
+let balls
+
 let x;
 let y;
 let xSpeed = 10;
 let ySpeed = 10;
-let size = 100;
+let size = 90;
 let BlueMove = true;
 window.onclick = clock;
 
@@ -28,7 +30,7 @@ function update() {
 
 
     if (BlueMove) {
-        context.fillStyle = "yellow";
+        context.fillStyle = "purple";
         context.fillRect(0, 0, width, height);
 
 
@@ -60,7 +62,7 @@ function clock(eventData) {
         if (Utils.calculateDistance(x, y, mouseX, mouseY) < size)
             BlueMove = false;
 
-        context.fillStyle = 'purple';
+        context.fillStyle = 'red';
         Utils.fillCircle(eventData.x, eventData.y, size / 2);
     }
 

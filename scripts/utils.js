@@ -126,6 +126,10 @@ export function strokeEllipse(x, y, rX, rY) {
     context.stroke();
 }
 
+export function drawballoons(x, y, radius1, radius2) {
+    fillEllipse(x, y, radius1, radius2);
+}
+
 /**
  * Draws a filled and stroked circle of which the center is at a x,y
  * @param {number} x x coordinate of the center of the circle
@@ -162,4 +166,8 @@ export function drawLine(x1, y1, x2, y2) {
     context.lineTo(x2, y2);
     context.stroke();
 
+}
+
+export function drawOval(x1, y1, x2, y2) {
+    fillEllipse(x, y, radius, radius);
 }
