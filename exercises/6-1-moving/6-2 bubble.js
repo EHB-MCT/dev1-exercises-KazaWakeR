@@ -5,7 +5,6 @@ import * as Utils from "../../scripts/utils.js";
 let width = context.canvas.width;
 let height = context.canvas.height;
 
-let balls
 
 let x;
 let y;
