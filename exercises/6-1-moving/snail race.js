@@ -5,21 +5,8 @@ import * as Utils from "../../scripts/utils.js";
 
 let width = context.canvas.width;
 let height = context.canvas.height;
-background();
 
-function background() {
-    for (let k = 1; k < 10; k++) {
-        let space = height / 5;
-        context.fillStyle = "lightgrey";
-        context.fillRect(0, 0, width, space);
-        context.fillStyle = "grey";
-        context.fillRect(0, 0, width, space);
-        context.fillRect(0, space * 4, width, space);
-        context.fillRect(0, space * 2, width, space);
-    }
-}
-
-
+let xPos = [0, 0, 0, 0];
 
 setup();
 draw();
@@ -30,11 +17,43 @@ function setup() {
 }
 
 function draw() {
-    for (let i = 1; i < 6; i++) {
-        let space = height / 5;
-        drawSnail(space / 2, space * i - 100, space, 0 + i);
+    drawBackground();
+
+    let space = height / 5;
+
+    for (let i = 0; i < xPos.length; i++) {
+        xPos[i] += Utils.randomNumber(2, 10);
+        //update
+        let x = xPos[i];
+        let y = space * i + space / 2;
+        let size = space;
+        let number = i;
+        drawSnail(x, y, size, number);
+    }
+
+    //check if snail has won
+    for (let i = 0; i < xPos.length; i++);
+    if (xPos[i] >= width) {
+        context.font("120px Arial");
+        context.fillText('snail' + 'has won!', width / 2, height / 2);
+        isPlaying = false;
+    }
+    if (isPlaying) {
+        requestAnimationFrame(draw);
     }
 }
+
+function drawBackground() {
+    for (let i = 0; i < xPos.length; i++) {
+        if (i % 2 == 0) {
+            context.fillStyle = 'drarkgrey';
+        } else {
+            context.fillStyle = 'lightgrey';
+        }
+        context.fillRect(0, height / 5 * i, width, height / 5);
+    }
+}
+
 
 function drawSnail(x, y, sizeY, number) {
 
