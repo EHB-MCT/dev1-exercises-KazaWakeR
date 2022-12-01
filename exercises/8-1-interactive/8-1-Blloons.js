@@ -13,12 +13,12 @@ setup();
 update();
 
 function setup() {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 45; i++) {
         let balloon = {
             x: Utils.randomNumber(0, width),
-            y: height / 1,
+            y: height / 0.9,
             size: 42,
-            hue: Utils.randomNumber(0, 48)
+            hue: Utils.randomNumber(0, 49)
         };
         balloons[i] = balloon;
     }
@@ -31,8 +31,8 @@ function update() {
     for (let i = 0; i < balloons.length; i++) {
         let balloon = balloons[i];
         balloon.x += Utils.randomNumber(2, -2);
-        balloon.y += Utils.randomNumber(-1, Utils.randomNumber(3, -13));
-        balloon.size += 14;
+        balloon.y += Utils.randomNumber(-1, Utils.randomNumber(5, -10));
+        balloon.size += 15;
         drawBalloon(balloon);
 
     }
@@ -43,7 +43,6 @@ function update() {
 function drawBalloon(balloon) {
     context.strokeStyle = 'black';
     Utils.drawLine(balloon.x, balloon.y, balloon.x, balloon.y + 100);
-    context.fillStyle = Utils.hsl(balloon.hue, 90, 50);
-    Utils.fillEllipse(balloon.x, balloon.y, 20, 30);
-
+    context.fillStyle = Utils.hsl(balloon.hue, 100, 50);
+    Utils.fillEllipse(balloon.x, balloon.y, 30, 40);
 }

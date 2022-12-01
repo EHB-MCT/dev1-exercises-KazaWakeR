@@ -1,63 +1,42 @@
 "use strict";
-
 import context from "../../scripts/context.js";
 import * as Utils from "../../scripts/utils.js";
 
 let width = context.canvas.width;
 let height = context.canvas.height;
-background();
 
-function background() {
-    for (let k = 1; k < 10; k++) {
-        let space = height / 5;
-        context.fillStyle = "lightgrey";
-        context.fillRect(0, 0, width, space);
-        context.fillStyle = "grey";
-        context.fillRect(0, 0, width, space);
-        context.fillRect(0, space * 4, width, space);
-        context.fillRect(0, space * 2, width, space);
+let persons = [];
+
+drawQueue();
+
+function drawQueue() {
+
+    persons.push("Yudzhel");
+    persons.push("Tassal");
+    persons.push("Berkay");
+    persons.push("Kobi");
+    persons.push("George");
+
+    console.log(persons);
+
+    //persons.shift();
+    //persons.shift();
+    //persons.shift();
+    //persons.shift();
+    //persons.shift();
+
+    for (let i = 0; i < persons.length; i++) {
+        drawPerson(100 + i * 100, 100, persons[i]);
     }
+
 }
 
-
-
-setup();
-draw();
-
-function setup() {
+function drawPerson(x, y, name) {
+    Utils.fillCircle(x, y, 25);
+    Utils.fillCircle(x, y + 50, 25);
+    context.fillRect(x - 25, y + 50, 50, 50);
+    context.fillRect(x - 15, y + 100, 30, 50);
+    context.font = "bold 21pt Arial";
     context.textAlign = "center";
-    context.fillStyle = "white";
-}
-
-function draw() {
-    for (let i = 1; i < 6; i++) {
-        let space = height / 5;
-        drawSnail(space / 2, space * i - 100, space, 0 + i);
-    }
-}
-
-function drawSnail(x, y, sizeY, number) {
-
-    let sizeDiff = sizeY / 4 / 5;
-    context.beginPath();
-    context.fillStyle = "green";
-    context.ellipse(x + sizeY / 24, y + sizeY / 4, sizeY / 2, sizeY / 8, 0, 0, Math.PI * 2);
-    context.fill();
-    context.beginPath();
-    context.ellipse(x + sizeY / 2, y + sizeY / 8, sizeY / 4, sizeY / 8, Math.PI / 4 * 3, 0, Math.PI * 2);
-    context.fill();
-    context.beginPath();
-    context.ellipse(x + sizeY / 2 + sizeY / 16, y - sizeY / 8, sizeY / 16, sizeY / 8, 0, 0, Math.PI * 2);
-    context.fill();
-    context.strokeStyle = "orange";
-    context.fillStyle = "darkorange";
-    for (let i = 0; i < 5; i++) {
-        context.beginPath();
-        context.arc(x, y, sizeY / 3 - sizeDiff * i, 0, Math.PI * 2);
-        context.fill();
-        context.stroke();
-    }
-    context.fillStyle = "black";
-    context.font = "bold " + sizeY / 5 + "pt Arial";
-    context.fillText(number, x, y + sizeY / 8);
+    context.fillText(name, x, y - 40);
 }
